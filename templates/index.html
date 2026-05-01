@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keating Scale</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="app-wrapper">
+        <div class="container">
+            <header>
+                <div class="logo-container">
+                    <img src="{{ url_for('static', filename='logo.png') }}" alt="Keating Scale Logo" class="app-logo">
+                </div>
+                <h1>The Keating Scale</h1>
+                <p class="subtitle">"No matter what anybody tells you, words and ideas can change the world."</p>
+            </header>
+
+            <main>
+                <div class="input-section">
+                    <textarea id="text-input"
+                        placeholder="Draft your verses here. Sound your barbaric yawp over the roofs of the world..."></textarea>
+
+                    <button id="analyze-btn">Evaluate My Expression</button>
+                </div>
+
+                <div id="loading" class="hidden">
+                    <div class="spinner"></div>
+                    <p>Consulting the dead poets...</p>
+                </div>
+
+                <div id="results-section" class="hidden">
+                    <h2>Analysis of Your Verse</h2>
+
+                    <div class="profile-card">
+                        <h3>Overall Profile</h3>
+                        <p id="overall-profile"></p>
+                    </div>
+
+                    <div class="dimensions">
+                        <div class="dimension" id="dim-authenticity">
+                            <div class="dim-header">
+                                <span class="dim-name">Authenticity</span>
+                                <div class="dim-score-wrapper">
+                                    <span class="score-text"></span>
+                                    <div class="indicator"></div>
+                                </div>
+                            </div>
+                            <p class="dim-desc">Specific voice vs. Generic/AI-like</p>
+                        </div>
+                        <div class="dimension" id="dim-originality">
+                            <div class="dim-header">
+                                <span class="dim-name">Originality</span>
+                                <div class="dim-score-wrapper">
+                                    <span class="score-text"></span>
+                                    <div class="indicator"></div>
+                                </div>
+                            </div>
+                            <p class="dim-desc">New angles vs. Cliché sayings</p>
+                        </div>
+                        <div class="dimension" id="dim-emotional_weight">
+                            <div class="dim-header">
+                                <span class="dim-name">Emotional Weight</span>
+                                <div class="dim-score-wrapper">
+                                    <span class="score-text"></span>
+                                    <div class="indicator"></div>
+                                </div>
+                            </div>
+                            <p class="dim-desc">Evokes feeling vs. Flat statements</p>
+                        </div>
+                        <div class="dimension" id="dim-clarity">
+                            <div class="dim-header">
+                                <span class="dim-name">Clarity</span>
+                                <div class="dim-score-wrapper">
+                                    <span class="score-text"></span>
+                                    <div class="indicator"></div>
+                                </div>
+                            </div>
+                            <p class="dim-desc">Clear intent vs. Overly abstract</p>
+                        </div>
+                        <div class="dimension" id="dim-boldness">
+                            <div class="dim-header">
+                                <span class="dim-name">Boldness</span>
+                                <div class="dim-score-wrapper">
+                                    <span class="score-text"></span>
+                                    <div class="indicator"></div>
+                                </div>
+                            </div>
+                            <p class="dim-desc">Takes a stance vs. Safe/Neutral</p>
+                        </div>
+                    </div>
+
+                    <div class="feedback-card">
+                        <h3>Guidance</h3>
+                        <p id="feedback-text"></p>
+                    </div>
+
+                    <div class="detection-card">
+                        <div class="det-item">
+                            <span>Claim Type:</span> <strong id="claim-type"></strong>
+                        </div>
+                        <div class="det-item">
+                            <span>Generic Density:</span> <strong id="generic-density"></strong>
+                        </div>
+                    </div>
+
+                    <div id="motivation-card" class="motivation hidden">
+                        <h3>Carpe Diem</h3>
+                        <p id="motivation-text"></p>
+                        <div class="rewrite-challenge-box">
+                            <h4>Keating Push:</h4>
+                            <p id="rewrite-challenge-text"></p>
+                        </div>
+                        <button id="rewrite-btn" class="secondary-btn">Revise and Resubmit</button>
+                    </div>
+                </div>
+            </main>
+
+            <footer>
+                <p>Make your lives extraordinary.</p>
+            </footer>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
