@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+ document.addEventListener('DOMContentLoaded', () => {
     const analyzeBtn = document.getElementById('analyze-btn');
     const rewriteBtn = document.getElementById('rewrite-btn');
     const textInput = document.getElementById('text-input');
@@ -24,15 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
         loading.classList.remove('hidden');
         resultsSection.classList.add('hidden');
 
-        const responseLength = document.getElementById('response-length').value;
-
         try {
             const response = await fetch('/api/analyze', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ text, max_tokens: parseInt(responseLength) })
+                body: JSON.stringify({ text, max_tokens: 1024 })
             });
 
             const data = await response.json();
